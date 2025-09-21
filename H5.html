@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关爱儿童公益活动</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5', // 主色调：温暖的紫色，代表关爱与希望
+                        secondary: '#EC4899', // 辅助色：柔和的粉色，代表温暖与关怀
+                        accent: '#10B981', // 强调色：清新的绿色，代表成长与活力
+                        neutral: '#F3F4F6', // 中性色：浅灰色背景
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="images/logo.png" class="h-8 w-auto transition-transform duration-300 hover:scale-110"> 
+                <span class="text-xl font-bold text-primary">关爱儿童计划</span>
+            </div>
+
+            <!-- 桌面导航 -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#goal" class="hover:text-primary transition-colors">目标与定位</a>
+                <a href="#activities" class="hover:text-primary transition-colors">活动内容</a>
+                <a href="#resources" class="hover:text-primary transition-colors">执行规划</a>
+                <a href="#promotion" class="hover:text-primary transition-colors">宣传预热</a>
+            </div>
+
+            <!-- 移动端菜单按钮 -->
+            <button class="md:hidden text-gray-600 focus:outline-none" id="menuBtn">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- 移动端导航菜单 -->
+        <div class="md:hidden hidden bg-white w-full" id="mobileMenu">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="#goal" class="py-2 hover:text-primary transition-colors">目标与定位</a>
+                <a href="#activities" class="py-2 hover:text-primary transition-colors">活动内容</a>
+                <a href="#resources" class="py-2 hover:text-primary transition-colors">执行规划</a>
+                <a href="#promotion" class="py-2 hover:text-primary transition-colors">宣传预热</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <header class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-primary/90 to-secondary/90 text-white">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-shadow leading-tight">
+                    用爱心点亮<br>孩子们的未来
+                </h1>
+                <p class="text-lg md:text-xl opacity-90 mb-8 max-w-lg">
+                    我们致力于为留守儿童和孤独症儿童提供学业支持与情感陪伴，
+                    让每个孩子都能健康快乐地成长。
+                </p>
+                <a href="#activities" class="bg-white text-primary font-medium px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all inline-flex items-center">
+                    了解我们的活动
+                    <i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            <div class="md:w-1/2">
+                <img src="images/hero.jpg" alt="志愿者与孩子们互动的温馨场景" class="rounded-lg shadow-2xl w-full h-auto object-cover transform rotate-1 hover:rotate-0 transition-transform duration-500">
+            </div>
+        </div>
+    </header>
+
+    <!-- 目标与定位 -->
+    <section id="goal" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">目标与定位</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-neutral p-8 rounded-xl shadow-md">
+                    <div class="text-primary text-4xl mb-6">
+                        <i class="fa fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">核心目的</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-accent mt-1 mr-3"></i>
+                            <span>为留守儿童提供学业支持与情感陪伴，减少其孤独感，拓宽知识视野。</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-accent mt-1 mr-3"></i>
+                            <span>面向孤独症儿童提供心理疏导服务，帮助缓解成长压力，建立积极心态。</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-neutral p-8 rounded-xl shadow-md">
+                    <div class="text-primary text-4xl mb-6">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">目标人群</h3>
+                    <p class="text-lg">留守儿童和孤独症儿童</p>
+                    <div class="mt-8">
+                        <img src="images/children-study.jpg" alt="孩子们一起学习的场景" class="rounded-lg w-full h-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 活动内容 -->
+    <section id="activities" class="py-16 md:py-24 bg-neutral">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">策划核心内容</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">我们精心设计了一系列活动，旨在为孩子们提供全面的支持和陪伴</p>
+                <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 活动一 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="images/clothes.jpg" alt="旧衣回收活动" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                <i class="fa fa-shopping-bag"></i>
+                            </div>
+                            <h3 class="text-xl font-bold ml-3">旧衣回收</h3>
+                        </div>
+                        <p class="text-gray-600">
+                            通过网络渠道收购质量合格旧衣，制作短视频获得关注，在二手平台联系商家收购，
+                            也可在校内外组织线下宣传活动收集爱心衣物。将衣服清洗后打包带给儿童们。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 活动二 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="images/homework.jpg" alt="作业辅导活动" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                <i class="fa fa-book"></i>
+                            </div>
+                            <h3 class="text-xl font-bold ml-3">作业辅导</h3>
+                        </div>
+                        <p class="text-gray-600">
+                            由活动参与者1对1或者1对多的帮助指导儿童完成作业，提供知识解答和思路指导，
+                            传授学习经验和社交经验。对于孤独症儿童请专业心理辅导师进行1对1帮助。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 活动三 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="images/choir.jpg" alt="合唱活动" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                <i class="fa fa-music"></i>
+                            </div>
+                            <h3 class="text-xl font-bold ml-3">合唱</h3>
+                        </div>
+                        <p class="text-gray-600">
+                            组织与儿童一起学习音乐基础知识，欣赏优秀音乐作品，引导感受艺术魅力，
+                            设置交流环节分享各自感受，提高审美能力，最后一起创作一首简单歌曲并合唱。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 活动四 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="images/painting.jpg" alt="手工绘画制作活动" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                <i class="fa fa-paint-brush"></i>
+                            </div>
+                            <h3 class="text-xl font-bold ml-3">手工绘画制作</h3>
+                        </div>
+                        <p class="text-gray-600">
+                            组织成员提前采购对应材料，确定主题，例如"我的梦想"让儿童自行创作绘画，
+                            并给予积极点评，引导儿童互相欣赏赞美。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 活动五 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="images/science.jpg" alt="科学科普活动" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                <i class="fa fa-flask"></i>
+                            </div>
+                            <h3 class="text-xl font-bold ml-3">科学科普</h3>
+                        </div>
+                        <p class="text-gray-600">
+                            组织成员或学科教师对自己专业内知识进行整理，并且用通俗易懂的例子或者
+                            生动有趣的实验吸引儿童兴趣，启发儿童思考。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 资源与执行规划 -->
+    <section id="resources" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">资源与执行规划</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+
+            <div class="max-w-3xl mx-auto bg-neutral p-8 rounded-xl shadow-md">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xl">
+                        <i class="fa fa-cogs"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold ml-4">后勤保障</h3>
+                </div>
+
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <i class="fa fa-check-circle text-accent mt-1 mr-3"></i>
+                        <span>对活动内需要的物品材料进行采购并统计花费</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fa fa-check-circle text-accent mt-1 mr-3"></i>
+                        <span>联系心理辅导师和学科老师并安排行程时间</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fa fa-check-circle text-accent mt-1 mr-3"></i>
+                        <span>提前通知相关人员活动安排，确保信息传达到位</span>
+                    </li>
+                </ul>
+
+                <div class="mt-10 bg-white p-6 rounded-lg shadow-sm">
+                    <h4 class="font-bold text-lg mb-3">执行流程</h4>
+                    <div class="relative">
+                        <!-- 时间线 -->
+                        <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-200"></div>
+
+                        <!-- 步骤1 -->
+                        <div class="relative pl-12 pb-6">
+                            <div class="absolute left-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center">1</div>
+                            <h5 class="font-semibold">前期准备</h5>
+                            <p class="text-gray-600">确定活动时间、地点，招募志愿者，准备活动材料</p>
+                        </div>
+
+                        <!-- 步骤2 -->
+                        <div class="relative pl-12 pb-6">
+                            <div class="absolute left-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center">2</div>
+                            <h5 class="font-semibold">活动执行</h5>
+                            <p class="text-gray-600">按照活动计划开展各项活动，确保安全有序进行</p>
+                        </div>
+
+                        <!-- 步骤3 -->
+                        <div class="relative pl-12">
+                            <div class="absolute left-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center">3</div>
+                            <h5 class="font-semibold">活动总结</h5>
+                            <p class="text-gray-600">收集反馈，总结经验，为后续活动改进提供参考</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 宣传与预热 -->
+    <section id="promotion" class="py-16 md:py-24 bg-gradient-to-br from-primary/5 to-secondary/5">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">宣传与预热</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">通过多渠道宣传，让更多人了解并参与到我们的公益活动中来</p>
+                <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="text-primary text-4xl mb-6">
+                        <i class="fa fa-bullhorn"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">渠道选择</h3>
+                    <p class="mb-4">根据人群特性选择合适的宣传平台：</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i class="fa fa-user-circle text-secondary mr-3"></i>
+                            <div>
+                                <span class="font-medium">年轻人：</span>
+                                <span class="text-gray-600">抖音、小红书</span>
+                            </div>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-briefcase text-secondary mr-3"></i>
+                            <div>
+                                <span class="font-medium">职场人：</span>
+                                <span class="text-gray-600">微信、LinkedIn</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="mt-8 flex space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-[#E6162D]/10 flex items-center justify-center text-[#E6162D]">
+                            <i class="fa fa-weixin text-xl"></i>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-[#FE2C55]/10 flex items-center justify-center text-[#FE2C55]">
+                            <i class="fa fa-instagram text-xl"></i>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-[#1DA1F2]/10 flex items-center justify-center text-[#1DA1F2]">
+                            <i class="fa fa-twitter text-xl"></i>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-[#FF0000]/10 flex items-center justify-center text-[#FF0000]">
+                            <i class="fa fa-youtube-play text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="text-primary text-4xl mb-6">
+                        <i class="fa fa-clock-o"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">预热节奏</h3>
+                    <p class="mb-4">提前1-2周开始，通过多种形式制造期待：</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa fa-image text-accent mt-1 mr-3"></i>
+                            <span>设计精美的宣传海报，突出活动主题和意义</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-film text-accent mt-1 mr-3"></i>
+                            <span>制作短视频，展示活动亮点和往期精彩瞬间</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-calendar text-accent mt-1 mr-3"></i>
+                            <span>设置倒计时，增加期待感</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-lightbulb-o text-accent mt-1 mr-3"></i>
+                            <span>"每日解锁一个活动亮点"，逐步揭示活动内容</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 呼吁行动 -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">加入我们，一起关爱儿童</h2>
+            <p class="text-xl opacity-90 max-w-2xl mx-auto mb-10">
+                您的一份爱心，就能为孩子们带来更多温暖和希望。
+                无论是参与活动还是捐赠物资，都能让他们感受到社会的关爱。
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#" class="bg-white text-primary font-medium px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all inline-flex items-center justify-center">
+                    <i class="fa fa-handshake-o mr-2"></i>
+                    成为志愿者
+                </a>
+                <a href="#" class="bg-transparent border-2 border-white text-white font-medium px-8 py-3 rounded-full hover:bg-white/10 transition-all inline-flex items-center justify-center">
+                    <i class="fa fa-heart mr-2"></i>
+                    物资捐赠
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <i class="fa fa-heart text-secondary text-2xl"></i>
+                        <span class="text-xl font-bold">关爱儿童计划</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        我们致力于为留守儿童和孤独症儿童提供更好的成长环境，
+                        让每个孩子都能健康快乐地成长。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-youtube-play text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-6">快速链接</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#goal" class="text-gray-400 hover:text-white transition-colors">目标与定位</a></li>
+                        <li><a href="#activities" class="text-gray-400 hover:text-white transition-colors">活动内容</a></li>
+                        <li><a href="#resources" class="text-gray-400 hover:text-white transition-colors">执行规划</a></li>
+                        <li><a href="#promotion" class="text-gray-400 hover:text-white transition-colors">宣传预热</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-6">联系我们</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa fa-envelope text-secondary mt-1 mr-3"></i>
+                            <span class="text-gray-400">2052130073@childcare.org</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-phone text-secondary mt-1 mr-3"></i>
+                            <span class="text-gray-400">+86 18618153151</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-map-marker text-secondary mt-1 mr-3"></i>
+                            <span class="text-gray-400">武汉市江夏区黄家湖大道333号武汉学院</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 关爱儿童计划 版权所有武汉学院志愿者协会</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 导航栏滚动效果
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'shadow-lg');
+                nav.classList.remove('py-3', 'shadow-md');
+            } else {
+                nav.classList.add('py-3', 'shadow-md');
+                nav.classList.remove('py-2', 'shadow-lg');
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // 关闭移动端菜单（如果打开）
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 回到顶部按钮
+        const backToTopBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 为卡片添加动画效果
+        const animateOnScroll = () => {
+            const cards = document.querySelectorAll('.card-hover');
+
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                const triggerBottom = window.innerHeight * 0.8;
+                if (cardTop < triggerBottom) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // 初始设置
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+        });
+
+        // 监听滚动事件
+        window.addEventListener('scroll', animateOnScroll);
+        // 初始加载时执行一次
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
